@@ -1,0 +1,1 @@
+{'order_index': 80, 'order_start_time': 6, 'order_end_time': 24, 'start_point': [355.42, 340.85], 'end_point': [137.38, 760.93], 'start_station': 31, 'end_station': 8, 'path': [31, 32, 23, 14, 6, 7, 8]}
