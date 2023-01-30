@@ -13,33 +13,45 @@
 
 ## Data
 
-The dataset comes from a [tracking schema](https://meta.wikimedia.org/wiki/Schema:TestSearchSatisfaction2) that we use for assessing user satisfaction. Desktop users are randomly sampled to be anonymously tracked by this schema which uses a "I'm alive" pinging system that we can use to estimate how long our users stay on the pages they visit. The dataset contains just a little more than a week of EL data.
+下面给出了每个文件夹里面数据的具体介绍。
 
 ### order_describe
 
-| Column          | Value   | Description                                                  |
-| :-------------- | :------ | :----------------------------------------------------------- |
-| uuid            | string  | Universally unique identifier (UUID) for backend event handling. |
-| timestamp       | integer | The date and time (UTC) of the event, formatted as YYYYMMDDhhmmss. |
-| session_id      | string  | A unique ID identifying individual sessions.                 |
-| group           | string  | A label ("a" or "b").                                        |
-| action          | string  | Identifies in which the event was created. See below.        |
-| checkin         | integer | How many seconds the page has been open for.                 |
-| page_id         | string  | A unique identifier for correlating page visits and check-ins. |
-| n_results       | integer | Number of hits returned to the user. Only shown for searchResultPage events. |
-| result_position | integer | The position of the visited page's link on the search engine results page (SERP). |
+| Column           | Description                                    |
+| :--------------- | :--------------------------------------------- |
+| order_index      | 订单的索引                                     |
+| order_start_time | 订单的开始时刻，即客户向平台下单的时间点       |
+| order_end_time   | 订单的结束时间，客户要求的交付期限             |
+| start_point      | 订单起始位置                                   |
+| end_point        | 订单的终点                                     |
+| start_station    | 订单的起点站，一般是离订单起始位置最近的中转站 |
+| end_station      | 订单的终点站                                   |
+| path             | 划分子订单时，平台为订单规划的路径             |
 
-- 
+### order_detail
 
-### Example
+| Column            | Description                                      |
+| :---------------- | :----------------------------------------------- |
+| suborder_index    | 子订单的执行序位                                 |
+| suborder_distance | 子订单的距离                                     |
+| start_station     | 子订单的起始站点                                 |
+| end_station       | 子订单的终点站                                   |
+| start_time        | 子订单的起始时间，即平台为子订单分配时间的时间点 |
+| end_time          | 子订单的终止时间，即司机到达子订单终点站的时间   |
+| promise_time      | 司机接单时提供的承诺交付时间                     |
+| actual_time       | 司机的实际交付时间                               |
+| driver_price      | 平台给司机的定价                                 |
 
-| uuid                             | timestamp      | session_id       | group | action           | checkin | page_id          | n_results | result_position |
-| :------------------------------- | :------------- | :--------------- | :---- | :--------------- | ------: | :--------------- | --------: | --------------: |
-| 4f699f344515554a9371fe4ecb5b9ebc | 20160305195246 | 001e61b5477f5efc | b     | searchResultPage |      NA | 1b341d0ab80eb77e |         7 |              NA |
-| 759d1dc9966353c2a36846a61125f286 | 20160305195302 | 001e61b5477f5efc | b     | visitPage        |      NA | 5a6a1f75124cbf03 |        NA |               1 |
-| 77efd5a00a5053c4a713fbe5a48dbac4 | 20160305195312 | 001e61b5477f5efc | b     | checkin          |      10 | 5a6a1f75124cbf03 |        NA |               1 |
-| 42420284ad895ec4bcb1f000b949dd5e | 20160305195322 | 001e61b5477f5efc | b     | checkin          |      20 | 5a6a1f75124cbf03 |        NA |               1 |
-| 8ffd82c27a355a56882b5860993bd308 | 20160305195332 | 001e61b5477f5efc | b     | checkin          |      30 | 5a6a1f75124cbf03 |        NA |               1 |
-| 2988d11968b25b29add3a851bec2fe02 | 20160305195342 | 001e61b5477f5efc | b     | checkin          |      40 | 5a6a1f75124cbf03 |        NA |               1 |
+### driver
 
-This user's search query returned 7 results, they clicked on the first result, and stayed on the page between 40 and 50 seconds. (The next check-in would have happened at 50s.)
+| Column            | Description                                      |
+| :---------------- | :----------------------------------------------- |
+| driver_id         | 司机的识别编号                                   |
+| suborder_distance | 子订单的距离                                     |
+| start_station     | 子订单的起始站点                                 |
+| end_station       | 子订单的终点站                                   |
+| start_time        | 子订单的起始时间，即平台为子订单分配时间的时间点 |
+| end_time          | 子订单的终止时间，即司机到达子订单终点站的时间   |
+| promise_time      | 司机接单时提供的承诺交付时间                     |
+| actual_time       | 司机的实际交付时间                               |
+| driver_price      | 平台给司机的定价                                 |
