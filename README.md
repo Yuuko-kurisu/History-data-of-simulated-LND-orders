@@ -1,5 +1,24 @@
 # History data of simulated LND orders
 
+This is the simulation data for the paper [“](https://www.sciencedirect.com/science/article/abs/pii/S1474034623003853)[Preliminary exploration for long-distance non-standardized delivery](https://ieeexplore.ieee.org/abstract/document/10225615)[”](https://www.sciencedirect.com/science/article/abs/pii/S1474034623003853)
+
+Authors: H Jiang, J You, Z Chen, Y Shi, S Qiu, X Ming, Poly Z.H Sun
+
+```
+@ARTICLE{10225615,
+  author={Jiang, Hongwei and You, Jiapeng and Chen, Zhiyang and Shi, Yida and Qiu, Siqi and Ming, Xinguo and Sun, Poly Z. H.},
+  journal={IEEE Transactions on Intelligent Transportation Systems}, 
+  title={Preliminary Exploration for Long-Distance Non-Standardized Delivery}, 
+  year={2023},
+  volume={24},
+  number={12},
+  pages={14347-14361},
+  doi={10.1109/TITS.2023.3299618}}
+
+```
+
+
+
 这个仓库给出了仿真的LND订单的部分数据，考虑到数据的隐私性，我们对数据中的具体信息都进行了脱敏。
 
 ## Description
